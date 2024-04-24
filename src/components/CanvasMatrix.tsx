@@ -50,8 +50,8 @@ export default function CanvasMatrixsac() {
     function initilaValues() {
       if (!canvas) return
       if (!context) return
-      canvas.width = image.width
-      canvas.height = image.height
+//      canvas.width = image.width
+  //    canvas.height = image.height
       minHeight = -fontSize
       maxHeight = canvas.height / fontSize
       columns = Math.trunc(canvas.width / fontSize)

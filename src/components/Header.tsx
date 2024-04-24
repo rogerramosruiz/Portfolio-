@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
+import CanvasMatrix from './CanvasMatrix'
 
 export default function Header() {
   const [text] = useTypewriter({
@@ -17,9 +18,9 @@ export default function Header() {
   })
 
   return (
-    <div className='bg-blue-500 p-5'>
-      <div className='flex justify-center gap-4 flex-col md:flex-row'>
-        <canvas width={500} height={500} className='bg-black'></canvas>
+    <div className='bg-blue-800 p-5'>
+      <div className='flex justify-center gap-2 flex-col md:flex-row'>
+        <CanvasMatrix />
         <div className='w-full flex items-center justify-center'>
           <p className='text-white text-3xl'>
             <h1 className='text-center'>
