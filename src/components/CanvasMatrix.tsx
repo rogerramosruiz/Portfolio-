@@ -169,7 +169,7 @@ export default function CanvasMatrixsac() {
         <canvas
           width={500}
           height={500}
-          className='bg-black'
+          className='bg-black rounded-full'
           ref={canvasRef}
         ></canvas>
       </div>
