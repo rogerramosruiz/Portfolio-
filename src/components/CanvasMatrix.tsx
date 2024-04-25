@@ -30,7 +30,7 @@ export default function CanvasMatrixsac() {
     const fontSize = 5
 
     let lastTime = 0
-    const fps = 60
+    const fps = 30
     const nextFrame = 1000 / fps
     let timer = 1
     let swBgColor = true
@@ -139,11 +139,11 @@ export default function CanvasMatrixsac() {
       requestAnimationFrame(animate)
     }
     window.onresize = () => initilaValues()
-    setInterval(() => {
+    let intervalId1 = setInterval(() => {
       swBgColor = !swBgColor
     }, 3000)
 
-    setInterval(() => {
+    let intervalId2 = setInterval(() => {
       clearBackGround = true
     }, 10000)
 
@@ -160,6 +160,10 @@ export default function CanvasMatrixsac() {
       initilaValues()
 
       animate(0)
+    }
+    return () => {
+      clearInterval(intervalId1)
+      clearInterval(intervalId2)
     }
   }, [])
 
