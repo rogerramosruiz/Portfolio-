@@ -27,7 +27,7 @@ export default function CanvasMatrixsac() {
     let minHeight = 0,
       maxHeight = 0
     let clearBackGround = false
-    const fontSize = 5
+    const fontSize = 6
 
     let lastTime = 0
     const fps = 30
@@ -61,12 +61,17 @@ export default function CanvasMatrixsac() {
     }
 
     function getImage(img: HTMLImageElement) {
+      const scaleFactor = 0.5 // Scale factor to increase the size
+      const newWidth = img.width * scaleFactor
+      const newHeight = img.height * scaleFactor
+      // console.log(image.width, image.height)
+
       const imgCanvas = document.createElement('canvas')
       const imgCtx = imgCanvas.getContext('2d')
       if (!imgCtx) return
       imgCanvas.width = img.width
       imgCanvas.height = img.height
-      imgCtx.drawImage(img, 0, 0)
+      imgCtx.drawImage(img, 0, 0, newWidth, newHeight)
       return imgCtx.getImageData(0, 0, imgCanvas.width, imgCanvas.height)
     }
 
@@ -148,17 +153,8 @@ export default function CanvasMatrixsac() {
     }, 10000)
 
     image.onload = () => {
-      const imgCanvas = document.createElement('canvas')
-      const imgCtx = imgCanvas.getContext('2d')
-      imgCanvas.width = image.width
-      imgCanvas.height = image.height
-      if (!imgCtx) return
-      imgCtx.drawImage(image, 0, 0)
-
       imageData = getImage(image)
-
       initilaValues()
-
       animate(0)
     }
     return () => {
