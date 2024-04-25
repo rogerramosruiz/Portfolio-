@@ -34,7 +34,7 @@ export default function CanvasMatrixsac() {
     const nextFrame = 1000 / fps
     let timer = 1
     let swBgColor = true
-  
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -50,8 +50,8 @@ export default function CanvasMatrixsac() {
     function initilaValues() {
       if (!canvas) return
       if (!context) return
-//      canvas.width = image.width
-  //    canvas.height = image.height
+      //      canvas.width = image.width
+      //    canvas.height = image.height
       minHeight = -fontSize
       maxHeight = canvas.height / fontSize
       columns = Math.trunc(canvas.width / fontSize)
@@ -78,7 +78,6 @@ export default function CanvasMatrixsac() {
         return characters.charAt(Math.trunc(Math.random() * characters.length))
       }
     }
-
 
     function writeCharacter(i: number) {
       if (!context) return
@@ -165,11 +164,11 @@ export default function CanvasMatrixsac() {
 
   return (
     <div>
-      <div className='flex justify-center'>
+      <div className="flex justify-center">
         <canvas
           width={500}
           height={500}
-          className='bg-black rounded-full'
+          className="bg-black rounded-full"
           ref={canvasRef}
         ></canvas>
       </div>
