@@ -42,15 +42,11 @@ export default function CanvasMatrixsac() {
     const context = canvas.getContext('2d')
     if (!context) return
 
-    context.clearRect(0, 0, canvas.width, canvas.height)
-
     const image = new Image()
-
     image.src = photo
 
     function initilaValues() {
-      if (!canvas) return
-      if (!context) return
+      if (!canvas || !context) return
       charsPositionY = []
       context.clearRect(0, 0, canvas.width, canvas.height)
       canvas.width = Math.min(500, window.innerWidth - 50)
@@ -75,8 +71,8 @@ export default function CanvasMatrixsac() {
       const imgCanvas = document.createElement('canvas')
       const imgCtx = imgCanvas.getContext('2d')
       if (!imgCtx) return
-      imgCanvas.width = newWidth //img.width
-      imgCanvas.height = newHeight //img.height
+      imgCanvas.width = newWidth
+      imgCanvas.height = newHeight
       imgCtx.drawImage(img, 0, 0, newWidth, newHeight)
       const imgData = imgCtx.getImageData(
         0,
@@ -97,10 +93,7 @@ export default function CanvasMatrixsac() {
     }
 
     function writeCharacter(columnIndex: number) {
-      const startX = 0
-      const startY = 0
-      if (!context) return
-      if (!canvas) return
+      if (!canvas || !context) return
       if (swBgColor) context.fillStyle = 'rgb(0, 255, 0)'
       else context.fillStyle = 'rgb(82, 255, 82)'
 
@@ -108,20 +101,19 @@ export default function CanvasMatrixsac() {
       let posY = charsPositionY[columnIndex] * fontSize
       let character = chooseCharacter()
       if (!imageData) return
+      const pos = Math.trunc(posY) * imageData.width * 4 + posX * 4
       if (
-        posX > startX &&
+        posX > 0 &&
         posX < imageData.width &&
-        posY > startY &&
-        posY < imageData.height
+        posY > 0 &&
+        posY < imageData.height &&
+        pos + 3 < imageData.data.length &&
+        imageData.data[pos + 3] > 0
       ) {
-        const pos =
-          Math.trunc(posY - startY) * imageData.width * 4 + (posX - startX) * 4
-        if (pos + 3 < imageData.data.length && imageData.data[pos + 3] > 0) {
-          const r = imageData.data[pos]
-          const g = imageData.data[pos + 1]
-          const b = imageData.data[pos + 2]
-          context.fillStyle = `rgb(${r}, ${g}, ${b})`
-        }
+        const r = imageData.data[pos]
+        const g = imageData.data[pos + 1]
+        const b = imageData.data[pos + 2]
+        context.fillStyle = `rgb(${r}, ${g}, ${b})`
       }
       context.fillText(
         character,
@@ -139,8 +131,7 @@ export default function CanvasMatrixsac() {
     }
 
     function draw() {
-      if (!context) return
-      if (!canvas) return
+      if (!canvas || !context) return
       if (clearBackGround) {
         context.fillStyle = 'rgba(0, 0, 0, 0.89)'
         clearBackGround = false
