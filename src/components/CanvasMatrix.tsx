@@ -20,6 +20,7 @@ function map_range(
 
 export default function CanvasMatrixsac() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const requestRef = React.useRef(0)
   useEffect(() => {
     let imageData: ImageData | undefined
     let charsPositionY: number[] = []
@@ -32,7 +33,7 @@ export default function CanvasMatrixsac() {
     let lastTime = 0
     const fps = 30
     const nextFrame = 1000 / fps
-    let timer = 1
+    let timer = 0
     let swBgColor = true
 
     const canvas = canvasRef.current
@@ -50,29 +51,40 @@ export default function CanvasMatrixsac() {
     function initilaValues() {
       if (!canvas) return
       if (!context) return
-      canvas.width = Math.min(500, window.innerWidth - 100)
+      charsPositionY = []
+      context.clearRect(0, 0, canvas.width, canvas.height)
+      canvas.width = Math.min(500, window.innerWidth - 50)
       canvas.height = canvas.width
       minHeight = -fontSize
       maxHeight = canvas.height / fontSize
       columns = Math.trunc(canvas.width / fontSize)
+
       for (let i = 0; i < columns; i++)
         charsPositionY.push(randomUnoform(minHeight, maxHeight))
       context.font = fontSize + 'px monospace'
+      imageData = getImage(image)
     }
 
     function getImage(img: HTMLImageElement) {
-      const scaleFactor = 0.5 // Scale factor to increase the size
+      if (!canvas) return
+      const scaleFactor =
+        (canvas.width + canvas.height) / (img.width + img.height)
       const newWidth = img.width * scaleFactor
       const newHeight = img.height * scaleFactor
-      // console.log(image.width, image.height)
 
       const imgCanvas = document.createElement('canvas')
       const imgCtx = imgCanvas.getContext('2d')
       if (!imgCtx) return
-      imgCanvas.width = img.width
-      imgCanvas.height = img.height
+      imgCanvas.width = newWidth //img.width
+      imgCanvas.height = newHeight //img.height
       imgCtx.drawImage(img, 0, 0, newWidth, newHeight)
-      return imgCtx.getImageData(0, 0, imgCanvas.width, imgCanvas.height)
+      const imgData = imgCtx.getImageData(
+        0,
+        0,
+        imgCanvas.width,
+        imgCanvas.height
+      )
+      return imgData
     }
 
     function chooseCharacter(avg?: number) {
@@ -85,8 +97,8 @@ export default function CanvasMatrixsac() {
     }
 
     function writeCharacter(columnIndex: number) {
-      const startX = 100
-      const startY = 100
+      const startX = 0
+      const startY = 0
       if (!context) return
       if (!canvas) return
       if (swBgColor) context.fillStyle = 'rgb(0, 255, 0)'
@@ -98,11 +110,12 @@ export default function CanvasMatrixsac() {
       if (!imageData) return
       if (
         posX > startX &&
-        posX < image.width &&
+        posX < imageData.width &&
         posY > startY &&
         posY < imageData.height
       ) {
-        const pos = Math.trunc(posY - startY) * imageData.width * 4 + (posX - startX) * 4
+        const pos =
+          Math.trunc(posY - startY) * imageData.width * 4 + (posX - startX) * 4
         if (pos + 3 < imageData.data.length && imageData.data[pos + 3] > 0) {
           const r = imageData.data[pos]
           const g = imageData.data[pos + 1]
@@ -117,7 +130,10 @@ export default function CanvasMatrixsac() {
         randomUnoform(fontSize, fontSize + 25)
       )
       charsPositionY[columnIndex]++
-      if (charsPositionY[columnIndex] * fontSize > canvas.height && Math.random() > 0.9) {
+      if (
+        charsPositionY[columnIndex] * fontSize > canvas.height &&
+        Math.random() > 0.9
+      ) {
         charsPositionY[columnIndex] = -randomUnoform(minHeight, maxHeight) / 2
       }
     }
@@ -143,7 +159,7 @@ export default function CanvasMatrixsac() {
         timer = 0
       }
       timer += deltaTime
-      requestAnimationFrame(animate)
+      requestRef.current = requestAnimationFrame(animate)
     }
     window.onresize = () => initilaValues()
     let intervalId1 = setInterval(() => {
@@ -155,11 +171,11 @@ export default function CanvasMatrixsac() {
     }, 10000)
 
     image.onload = () => {
-      imageData = getImage(image)
       initilaValues()
       animate(0)
     }
     return () => {
+      cancelAnimationFrame(requestRef.current)
       clearInterval(intervalId1)
       clearInterval(intervalId2)
     }
