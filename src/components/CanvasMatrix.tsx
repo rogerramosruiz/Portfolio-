@@ -50,8 +50,8 @@ export default function CanvasMatrixsac() {
     function initilaValues() {
       if (!canvas) return
       if (!context) return
-      //      canvas.width = image.width
-      //    canvas.height = image.height
+      canvas.width = Math.min(500, window.innerWidth - 100)
+      canvas.height = canvas.width
       minHeight = -fontSize
       maxHeight = canvas.height / fontSize
       columns = Math.trunc(canvas.width / fontSize)
@@ -138,6 +138,7 @@ export default function CanvasMatrixsac() {
       timer += deltaTime
       requestAnimationFrame(animate)
     }
+    window.onresize = () => initilaValues()
     setInterval(() => {
       swBgColor = !swBgColor
     }, 3000)
@@ -146,7 +147,6 @@ export default function CanvasMatrixsac() {
       clearBackGround = true
     }, 10000)
 
-    window.onresize = () => initilaValues()
     image.onload = () => {
       const imgCanvas = document.createElement('canvas')
       const imgCtx = imgCanvas.getContext('2d')
@@ -158,6 +158,7 @@ export default function CanvasMatrixsac() {
       imageData = getImage(image)
 
       initilaValues()
+
       animate(0)
     }
   }, [])
