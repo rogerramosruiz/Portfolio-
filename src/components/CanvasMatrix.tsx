@@ -84,29 +84,31 @@ export default function CanvasMatrixsac() {
       }
     }
 
-    function writeCharacter(i: number) {
+    function writeCharacter(columnIndex: number) {
+      const startX = 100
+      const startY = 100
       if (!context) return
       if (!canvas) return
       if (swBgColor) context.fillStyle = 'rgb(0, 255, 0)'
       else context.fillStyle = 'rgb(82, 255, 82)'
 
-      let posX = i * fontSize
-      let posY = charsPositionY[i] * fontSize
+      let posX = columnIndex * fontSize
+      let posY = charsPositionY[columnIndex] * fontSize
       let character = chooseCharacter()
       if (!imageData) return
-      const pos = Math.trunc(posY) * imageData.width * 4 + posX * 4
       if (
-        posX > 0 &&
+        posX > startX &&
         posX < image.width &&
-        posY > 0 &&
-        posY < imageData.height &&
-        pos + 3 < imageData.data.length &&
-        imageData.data[pos + 3] > 0
+        posY > startY &&
+        posY < imageData.height
       ) {
-        const r = imageData.data[pos]
-        const g = imageData.data[pos + 1]
-        const b = imageData.data[pos + 2]
-        context.fillStyle = `rgb(${r}, ${g}, ${b})`
+        const pos = Math.trunc(posY - startY) * imageData.width * 4 + (posX - startX) * 4
+        if (pos + 3 < imageData.data.length && imageData.data[pos + 3] > 0) {
+          const r = imageData.data[pos]
+          const g = imageData.data[pos + 1]
+          const b = imageData.data[pos + 2]
+          context.fillStyle = `rgb(${r}, ${g}, ${b})`
+        }
       }
       context.fillText(
         character,
@@ -114,9 +116,9 @@ export default function CanvasMatrixsac() {
         posY,
         randomUnoform(fontSize, fontSize + 25)
       )
-      charsPositionY[i]++
-      if (charsPositionY[i] * fontSize > canvas.height && Math.random() > 0.9) {
-        charsPositionY[i] = -randomUnoform(minHeight, maxHeight) / 2
+      charsPositionY[columnIndex]++
+      if (charsPositionY[columnIndex] * fontSize > canvas.height && Math.random() > 0.9) {
+        charsPositionY[columnIndex] = -randomUnoform(minHeight, maxHeight) / 2
       }
     }
 
