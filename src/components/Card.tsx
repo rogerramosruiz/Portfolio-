@@ -1,7 +1,10 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-
 import { IoIosLink } from 'react-icons/io'
+
+import { useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useRef } from 'react'
 
 type CardProps = {
   backgroundImage: string
@@ -14,6 +17,7 @@ type CardProps = {
     backeEndRepo?: { url: string; icon: React.ReactNode }
     frontEndRepo?: { url: string; icon: React.ReactNode }
   }
+  index: number
 }
 export default function Card({
   backgroundImage,
@@ -22,11 +26,27 @@ export default function Card({
   imageUrls,
   url,
   repositories,
+  index,
 }: CardProps) {
   'grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4'
 
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+
   return (
-    <div>
+    <motion.div
+      ref={ref}
+      style={{
+        transform: isInView
+          ? 'none'
+          : `translateX(${index % 2 === 0 ? '-20rem' : '20rem'} )`,
+        opacity: isInView ? 1 : -5,
+        transition: 'all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+      }}
+      className={`flex w-full ${
+        index % 2 === 0 ? 'justify-start' : 'justify-end'
+      }`}
+    >
       <div
         className=' relative w-full md:w-4/6 lg:m-3/6 xl:w-6/12 bg-gray-100 group rounded-xl text-black/80
     hover:rounded-3xl transition-all duration-500 ease-linear mb-5 shadow-md  md:shadow-xl p-4 hover:text-gray-400 hover:bg-white '
@@ -94,7 +114,7 @@ export default function Card({
                         className='text-gray-200 hover:text-white'
                       >
                         {repositories.backeEndRepo?.icon}
-                      </a>
+                        </a>
                       <a
                         href={repositories.frontEndRepo.url}
                         rel='noreferrer'
@@ -122,6 +142,6 @@ export default function Card({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
