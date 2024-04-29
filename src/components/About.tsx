@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function About() {
   const images = {
-    react: '',
+    react:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1024px-React.svg.png',
     vue: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1024px-Vue.js_Logo_2.svg.png',
     svelte:
       'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg',
@@ -33,6 +34,33 @@ export default function About() {
     docker:
       'https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png',
   }
+  const showImages = [
+    images.python,
+    images.flask,
+    images.fastapi,
+    images.opencv,
+    images.selenium,
+    images.node,
+    images.react,
+    images.vue,
+    images.svelte,
+    images.tailwindcss,
+    images.postgresql,
+    images.docker,
+  ]
+  const imagesGrids = []
+  let imageGrid: string[] = []
+
+  for (let i = 0; i < showImages.length; i++) {
+    if (i !== 0 && i % 4 === 0) {
+      imagesGrids.push(imageGrid.slice())
+      imageGrid = []
+    }
+    imageGrid.push(showImages[i])
+  }
+  console.log(showImages.length)
+  if (imageGrid.length !== 0) imagesGrids.push(imageGrid)
+  console.log(imagesGrids)
 
   return (
     <div className='bg-gray-950 text-white'>
@@ -53,7 +81,20 @@ export default function About() {
         <div className='w-full'>
           <div className=''>
             <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
-              <div className='grid gap-4 justify-center items-center'>
+              {imagesGrids.map((grid, i) => (
+                <div className='grid gap-4 justify-center items-center'>
+                  {grid.map((imgUrl, i) => (
+                    <div>
+                      <img
+                        className='h-auto max-w-32 rounded-lg object-cover object-center'
+                        src={imgUrl}
+                        alt=''
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+              {/* <div className='grid gap-4 justify-center items-center'>
                 <div>
                   <img
                     className='h-auto max-w-32 rounded-lg object-cover object-center'
@@ -137,7 +178,7 @@ export default function About() {
                     alt=''
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
