@@ -68,11 +68,11 @@ export default function About() {
 
   return (
     <div className='bg-gray-950 text-white'>
-      <h1 className='font-bold text-6xl text-center pt-10 pb-20 underline'>
+      <h1 className='font-bold text-6xl text-center py-10 underline'>
         About & Skills
       </h1>
-      <div className='flex flex-row justify-center'>
-        <div className='w-5/12 mx-3 flex justify-center p-2'>
+      <div className='flex flex-col md:flex-row justify-center'>
+        <div className='w-full md:w-7/12 px-5 md:px-0 md:pl-5 flex justify-center p-2'>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
             culpa, incidunt repudiandae repellendus beatae blanditiis quidem
@@ -80,17 +80,18 @@ export default function About() {
             autem doloribus vero in quis maxime possimus voluptas laboriosam
             officiis enim totam! Nulla explicabo a quae sunt fugiat inventore
             dolore magnam quibusdam fugit? Labore, consequatur.
+            lo
           </p>
         </div>
-        <div className='w-full px-4'>
+        <div className='w-full px-4 mt-6 md:mt-0'>
           <div>
-            <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
+            <div className='grid grid-cols-4 gap-4'>
               {imagesGrids.map((grid, i) => (
                 <div className='grid gap-4 justify-center items-center' key={i}>
                   {grid.map((imgUrl, j) => (
                     <div key={j}>
                       <img
-                        className='h-auto max-w-28 rounded-lg object-cover object-center'
+                        className='h-auto max-w-20 sm:max-w-28 rounded-lg object-cover object-center'
                         src={imgUrl}
                         alt=''
                       />
