@@ -4,6 +4,8 @@ export default function About() {
   const images = {
     react:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1024px-React.svg.png',
+    nextjs:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1024px-Nextjs-logo.svg.png',
     vue: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1024px-Vue.js_Logo_2.svg.png',
     svelte:
       'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg',
@@ -29,6 +31,7 @@ export default function About() {
       'https://redis.com/wp-content/themes/wpx/assets/images/logo-redis.svg',
     postgresql:
       'https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg',
+    mysql: 'https://labs.mysql.com/common/logos/mysql-logo.svg',
     tailwindcss:
       'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg',
     docker:
@@ -40,12 +43,15 @@ export default function About() {
     images.fastapi,
     images.opencv,
     images.selenium,
+    images.blender,
     images.node,
+    images.nextjs,
     images.react,
     images.vue,
     images.svelte,
     images.tailwindcss,
     images.postgresql,
+    images.mysql,
     images.docker,
   ]
   const imagesGrids = []
@@ -58,17 +64,15 @@ export default function About() {
     }
     imageGrid.push(showImages[i])
   }
-  console.log(showImages.length)
   if (imageGrid.length !== 0) imagesGrids.push(imageGrid)
-  console.log(imagesGrids)
 
   return (
     <div className='bg-gray-950 text-white'>
       <h1 className='font-bold text-6xl text-center pt-10 pb-20 underline'>
         About & Skills
       </h1>
-      <div className='flex'>
-        <div className='w-5/12 mx-3 flex justify-center p-5'>
+      <div className='flex flex-row justify-center'>
+        <div className='w-5/12 mx-3 flex justify-center p-2'>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
             culpa, incidunt repudiandae repellendus beatae blanditiis quidem
@@ -78,15 +82,15 @@ export default function About() {
             dolore magnam quibusdam fugit? Labore, consequatur.
           </p>
         </div>
-        <div className='w-full'>
-          <div className=''>
+        <div className='w-full px-4'>
+          <div>
             <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
               {imagesGrids.map((grid, i) => (
-                <div className='grid gap-4 justify-center items-center'>
-                  {grid.map((imgUrl, i) => (
-                    <div>
+                <div className='grid gap-4 justify-center items-center' key={i}>
+                  {grid.map((imgUrl, j) => (
+                    <div key={j}>
                       <img
-                        className='h-auto max-w-32 rounded-lg object-cover object-center'
+                        className='h-auto max-w-28 rounded-lg object-cover object-center'
                         src={imgUrl}
                         alt=''
                       />
@@ -94,91 +98,6 @@ export default function About() {
                   ))}
                 </div>
               ))}
-              {/* <div className='grid gap-4 justify-center items-center'>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.python}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.node}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.babylonjs}
-                    alt=''
-                  />
-                </div>
-              </div>
-              <div className='grid gap-4'>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.docker}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.vue}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center '
-                    src={images.flask}
-                    alt=''
-                  />
-                </div>
-              </div>
-              <div className='grid gap-4'>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.postgresql}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center '
-                    src={images.redis}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.blender}
-                    alt=''
-                  />
-                </div>
-              </div>
-              <div className='grid gap-4'>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.opencv}
-                    alt=''
-                  />
-                </div>
-                <div>
-                  <img
-                    className='h-auto max-w-32 rounded-lg object-cover object-center'
-                    src={images.selenium}
-                    alt=''
-                  />
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
