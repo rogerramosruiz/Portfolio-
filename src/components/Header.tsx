@@ -18,8 +18,9 @@ export default function Header() {
   })
 
   return (
-    <div className='bg-blue-800 p-5'>
-      <div className='flex justify-center gap-2 flex-col md:flex-row'>
+    <div className='bg-blue-800 p-5 h-screen flex items-center'>
+      
+      <div className='w-full flex justify-center gap-2 flex-col md:flex-row'>
         <CanvasMatrix />
         <div className='w-full lg:w-2/5 xl:w-1/5 flex items-center justify-center'>
           <p className='text-white text-3xl'>
