@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { IoIosLink } from 'react-icons/io'
-
 import { useInView } from 'framer-motion'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import Icon from './Icon'
 
 type CardProps = {
   backgroundImage: string
@@ -98,7 +98,9 @@ export default function Card({
                         rel='noreferrer'
                         className='hover:text-white'
                       >
-                        <FaGithub size={35} />
+                        <div>
+                          <Icon icon={<FaGithub size={35} />} />
+                        </div>
                       </a>
                     ) : (
                       <FaGithub size={35} />
@@ -134,7 +136,7 @@ export default function Card({
                     rel='noreferrer'
                     className='hover:text-white'
                   >
-                    <IoIosLink size={35} />
+                    <Icon icon={<IoIosLink size={35} />} />
                   </a>
                 )}
               </div>
