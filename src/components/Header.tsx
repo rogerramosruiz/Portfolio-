@@ -21,7 +21,7 @@ export default function Header() {
     <div className='bg-blue-800 p-5 min-h-screen flex items-center'>
       <div className='w-full flex justify-center gap-2 flex-col md:flex-row'>
         <CanvasMatrix />
-        <div className='w-full lg:w-2/5 xl:w-1/5 flex items-center justify-center'>
+        <div className='w-full lg:w-3/5 xl:w-2/5 flex items-center justify-center'>
           <p className='text-white text-3xl'>
             <h1 className='text-center'>
               Hello I am <span>Roger</span>.

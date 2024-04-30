@@ -15,6 +15,7 @@ export default function About() {
     images.svelte,
     images.tailwindcss,
     images.postgresql,
+    images.redis,
     images.mysql,
     images.docker,
   ]
@@ -36,14 +37,17 @@ export default function About() {
         About & Skills
       </h1>
       <div className='flex flex-col md:flex-row justify-center'>
-        <div className='w-full md:w-7/12 px-5 md:px-0 md:pl-5 flex justify-center p-2'>
+        <div className='w-full md:w-7/12 px-5 md:px-0 md:pl-5 flex justify-center p-2 text-lg text-slate-100'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-            culpa, incidunt repudiandae repellendus beatae blanditiis quidem
-            illo iure magnam, molestias molestiae aperiam quod odio reiciendis
-            autem doloribus vero in quis maxime possimus voluptas laboriosam
-            officiis enim totam! Nulla explicabo a quae sunt fugiat inventore
-            dolore magnam quibusdam fugit? Labore, consequatur. lo
+            As a developer, I am deeply dedicated to constantly expanding my
+            skills and exploring new horizons. I possess a strong passion for
+            problem-solving and innovation within software development,
+            constantly seeking out fresh challenges and opportunities for
+            growth. My enthusiasm is matched by a keen interest in machine
+            learning and computer vision technologies. I thrive on the dynamic
+            interplay of creativity, logic, and technology, which drives me to
+            create elegant solutions and continually push the limits of what can
+            be achieved.
           </p>
         </div>
         <div className='w-full px-4 mt-6 md:mt-0'>
