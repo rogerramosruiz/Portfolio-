@@ -114,7 +114,7 @@ export default function Card({
                         className='text-gray-200 hover:text-white'
                       >
                         {repositories.backeEndRepo?.icon}
-                        </a>
+                      </a>
                       <a
                         href={repositories.frontEndRepo.url}
                         rel='noreferrer'
