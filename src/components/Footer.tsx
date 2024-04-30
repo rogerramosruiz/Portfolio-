@@ -19,7 +19,7 @@ export default function Footer() {
         >
           <Icon icon={<FaLinkedin />} />
         </a>
-        <a href='https://hub.docker.com/' target='_blank' rel='noreferrer'>
+        <a href='https://hub.docker.com/u/rogerramosruiz' target='_blank' rel='noreferrer'>
           <Icon icon={<FaDocker />} />
         </a>
       </div>
