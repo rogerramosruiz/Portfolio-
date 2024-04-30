@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './components/Header'
-import About from './components/About'
+import Header from './views/Header'
+import About from './views/About'
 import Projects from './views/Projects'
 import Footer from './components/Footer'
 function App() {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
-import CanvasMatrix from './CanvasMatrix'
+import CanvasMatrix from '../components/CanvasMatrix'
 
 export default function Header() {
   const [text] = useTypewriter({
