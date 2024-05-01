@@ -36,18 +36,14 @@ export default function About() {
       <h1 className='font-bold text-6xl text-center py-10 underline'>
         About & Skills
       </h1>
-      <div className='flex flex-col md:flex-row justify-center'>
+      <div className='flex flex-col md:flex-row justify-center items-center mx-5 md:mx-10 lg:mx-20'>
         <div className='w-full md:w-7/12 px-5 md:px-0 md:pl-5 flex justify-center p-2 text-lg text-slate-100'>
           <p>
             As a developer, I am deeply dedicated to constantly expanding my
             skills and exploring new horizons. I possess a strong passion for
             problem-solving and innovation within software development,
             constantly seeking out fresh challenges and opportunities for
-            growth. My enthusiasm is matched by a keen interest in machine
-            learning and computer vision technologies. I thrive on the dynamic
-            interplay of creativity, logic, and technology, which drives me to
-            create elegant solutions and continually push the limits of what can
-            be achieved.
+            growth.
           </p>
         </div>
         <div className='w-full px-4 mt-6 md:mt-0'>
@@ -58,7 +54,7 @@ export default function About() {
                   {grid.map((imgUrl, j) => (
                     <div key={j}>
                       <img
-                        className='h-auto max-w-20 sm:max-w-28 rounded-lg object-cover object-center'
+                        className='h-auto max-w-20 sm:max-w-28 object-cover object-center'
                         src={imgUrl}
                         alt=''
                       />
