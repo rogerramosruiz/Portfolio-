@@ -41,7 +41,7 @@ export default function Card({
           ? 'none'
           : `translateX(${index % 2 === 0 ? '-20rem' : '20rem'} )`,
         opacity: isInView ? 1 : -5,
-        transition: 'all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+        transition: 'all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s',
       }}
       className={`flex w-full ${
         index % 2 === 0 ? 'justify-start' : 'justify-end'
