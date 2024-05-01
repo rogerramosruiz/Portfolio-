@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 
 export default function Projects() {
   return (
-    <div>
-      <h1 className='text-5xl font-bold text-center pb-4'>Projects</h1>
+    <div className='p-5'>
+      <h1 className='font-bold text-6xl text-center py-10 underline'>Projects</h1>
       {projects.map((project, i) => (
         <motion.div animate='show' className='overflow-hidden mx-5 xl:mx-28'>
           <Card {...project} index={i} />
