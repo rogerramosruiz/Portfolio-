@@ -5,7 +5,7 @@ import Projects from './views/Projects'
 import Footer from './components/Footer'
 function App() {
   return (
-    <div>
+    <div className='bg-gradient-to-b from-[#011] to-slate-100 text-white'>
       <Header />
       <About />
       <Projects />

@@ -32,7 +32,7 @@ export default function About() {
   if (imageGrid.length !== 0) imagesGrids.push(imageGrid)
 
   return (
-    <div className='bg-gray-950 text-white'>
+    <div className='text-white'>
       <h1 className='font-bold text-6xl text-center py-10 underline'>
         About & Skills
       </h1>
