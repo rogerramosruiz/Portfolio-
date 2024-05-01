@@ -5,11 +5,15 @@ import Projects from './views/Projects'
 import Footer from './components/Footer'
 function App() {
   return (
-    <div className='bg-gradient-to-b from-[#011] to-slate-100 text-white'>
-      <Header />
-      <About />
-      <Projects />
-      <Footer />
+    <div>
+      <div className='bg-gradient-to-br from-black to-gray-950'>
+        <Header />
+      </div>
+      <div className='bg-gradient-to-b md:bg-gradient-to-br from-black from-10% to-40%  to-white text-white'>
+        <About />
+        <Projects />
+        <Footer />
+      </div>
     </div>
   )
 }
