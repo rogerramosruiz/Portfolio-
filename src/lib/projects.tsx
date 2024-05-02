@@ -1,9 +1,9 @@
-import { images } from './images'
-import bgImage from '../images/bgImg.png'
 import { icons } from './icons'
+import { images } from './images'
 export const projects = [
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/3d_viwer.png',
     title: '3D object viwer',
     description: 'Visualize 3D objects from the browser ',
     imageUrls: [images.node, images.vue, images.tailwindcss],
@@ -20,7 +20,8 @@ export const projects = [
     },
   },
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/object_detection.png',
     title: 'Object Plastic detection',
     description: 'Detect plastics on images, videos, and on real time ',
     imageUrls: [
@@ -43,7 +44,8 @@ export const projects = [
     },
   },
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/img_downloader.png',
     title: 'Web Scrapping Image downloader',
     description: 'Scrap a bunch of images and download it with Python',
     imageUrls: [images.python],
@@ -52,7 +54,8 @@ export const projects = [
     },
   },
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/hdri_downloader.png',
     title: 'Web Scrapping 360° Image Downloader',
     description: 'Using Selenium and Python scrap and download images in 360',
     imageUrls: [images.python, images.selenium],
@@ -95,7 +98,8 @@ export const projects = [
     },
   },
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/todo_app.png',
     title: 'Todo App',
     description: 'A todo app build with microservies and authentication',
     imageUrls: [
@@ -112,7 +116,8 @@ export const projects = [
     },
   },
   {
-    backgroundImage: bgImage,
+    backgroundImage:
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/departamentos.png',
     title: 'Web Scrapping departamentos bolivia',
     description: 'Script to scrap data for all the deparments of Bolivia',
     imageUrls: [images.python, images.selenium],

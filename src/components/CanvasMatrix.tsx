@@ -1,6 +1,4 @@
-import React from 'react'
-import { useEffect, useRef } from 'react'
-import photo from '../images/y1.png'
+import React, { useEffect, useRef } from 'react'
 
 const characters =
   'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -43,7 +41,9 @@ export default function CanvasMatrixsac() {
     if (!context) return
 
     const image = new Image()
-    image.src = photo
+    image.crossOrigin = 'anonymous'
+    image.src =
+      'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/me.png'
 
     function initilaValues() {
       if (!canvas || !context) return
@@ -174,11 +174,11 @@ export default function CanvasMatrixsac() {
 
   return (
     <div>
-      <div className="flex justify-center">
+      <div className='flex justify-center'>
         <canvas
           width={500}
           height={500}
-          className="bg-black rounded-full"
+          className='bg-black rounded-full'
           ref={canvasRef}
         ></canvas>
       </div>
