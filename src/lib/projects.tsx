@@ -4,8 +4,8 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/3d_viwer.png',
-    title: '3D object viwer',
-    description: 'Visualize 3D objects from the browser ',
+    title: '3D object visualizer',
+    description: 'Visualize and manipulate 3D objects from the browser.',
     imageUrls: [images.node, images.vue, images.tailwindcss],
     url: 'http://hologramas.fcpn.edu.bo/',
     repositories: {
@@ -23,7 +23,7 @@ export const projects = [
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/object_detection.png',
     title: 'Object Plastic detection',
-    description: 'Detect plastics on images, videos, and on real time ',
+    description: 'Detect plastics in images, videos, and in real-time.',
     imageUrls: [
       images.python,
       images.opencv,
@@ -46,8 +46,9 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/img_downloader.png',
-    title: 'Web Scrapping Image downloader',
-    description: 'Scrap a bunch of images and download it with Python',
+    title: 'Web Scraping Image Downloader',
+    description:
+      'Scrape a collection of images and download them using Python.',
     imageUrls: [images.python],
     repositories: {
       gitRepository: 'https://github.com/rogerramosruiz/img-downloader',
@@ -56,8 +57,9 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/hdri_downloader.png',
-    title: 'Web Scrapping 360° Image Downloader',
-    description: 'Using Selenium and Python scrap and download images in 360',
+    title: 'Web Scraping 360° Image Downloader',
+    description:
+      'Using Selenium and Python to scrape and download 360° images.',
     imageUrls: [images.python, images.selenium],
     repositories: {
       gitRepository: 'https://github.com/rogerramosruiz/hdri-downloader',
@@ -66,8 +68,8 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/synthtetic_dataset/master/example.jpeg',
-    title: 'Synthetic dataset images generation',
-    description: 'Merging images to images genrate a shyntetic dataset',
+    title: 'Synthetic dataset image generation',
+    description: 'Merging images to generate a synthetic dataset.',
     imageUrls: [images.python, images.pillow],
     repositories: {
       gitRepository: 'https://github.com/rogerramosruiz/synthtetic_dataset',
@@ -76,9 +78,9 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/synthetic-dataset-blender/master/example.jpeg',
-    title: 'Synthetic dataset generation blender',
+    title: 'Blender Synthetic Dataset Generation',
     description:
-      'Rendering objects with backgrung images to create a shyntetic dataset',
+      'Rendering objects with background images to generate a synthetic dataset.',
     imageUrls: [images.python, images.blender],
     repositories: {
       gitRepository:
@@ -88,9 +90,9 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/synthetic-dataset-blender-hdri/master/example.jpeg',
-    title: 'Synthetic dataset generation Blender 360°',
+    title: 'Blender Synthetic dataset generation (360°)',
     description:
-      'Generating syntetic dataset rendering 3D objects with 360° images',
+      'Generating a synthetic dataset by rendering 3D objects with 360° images.',
     imageUrls: [images.python, images.blender],
     repositories: {
       gitRepository:
@@ -100,8 +102,8 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/todo_app.png',
-    title: 'Todo App',
-    description: 'A todo app build with microservies and authentication',
+    title: 'Microservices To-Do App',
+    description: 'A to-do app built with microservices and authentication',
     imageUrls: [
       images.python,
       images.flask,
@@ -118,8 +120,8 @@ export const projects = [
   {
     backgroundImage:
       'https://raw.githubusercontent.com/rogerramosruiz/portfolioimages/main/departamentos.png',
-    title: 'Web Scrapping departamentos bolivia',
-    description: 'Script to scrap data for all the deparments of Bolivia',
+    title: "Web Scraping Bolivia's Municipalities",
+    description: "Script to scrape data from all of Bolivia's municipalities.",
     imageUrls: [images.python, images.selenium],
     repositories: {
       gitRepository: 'https://github.com/rogerramosruiz/deparatamentos-bolivia',
