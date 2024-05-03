@@ -26,6 +26,7 @@ export const projects = [
     description: 'Detect plastics in images, videos, and in real-time.',
     imageUrls: [
       images.python,
+      images.fastapi,
       images.opencv,
       images.docker,
       images.nvidia,
